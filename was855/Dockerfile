@@ -1,20 +1,14 @@
-# CentOS 7 + IBM IM + WebSphere Application Server for Developers v8.5.5.3
+#  CentOS 7 + IBM IM + WebSphere Application Server for Developers v8.5.5.3
+#  Original from https://github.com/andrefernandes/docker-websphere
 
-FROM andrefernandes/docker-ibmim
+FROM jjacobso/ibmim:latest
 
-MAINTAINER Andre Fernandes
+MAINTAINER John Jacobson - jjacobso@gmail.com
 
-ADD installwas.sh /opt/installwas.sh
-ADD was85.rsp /opt/was85.rsp
+ADD scripts.zip /opt/scripts.zip
 
-RUN /opt/installwas.sh
+RUN unzip /opt/scripts.zip -d /opt && /opt/install.sh
 
-ADD startserver.sh /opt/startserver.sh
-
-EXPOSE 9080
-EXPOSE 9060
-EXPOSE 9443
-EXPOSE 2809
+EXPOSE 9080 9443 9060 9043
 
 CMD ["/opt/startserver.sh"]
-

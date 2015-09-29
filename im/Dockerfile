@@ -1,12 +1,13 @@
 # CentOS 7 + IBM Installation Manager
+# Original Author Andre Fernandes - https://github.com/andrefernandes/docker-websphere
 
-FROM andrefernandes/docker-centos7-base
+FROM centos:centos7
 
-MAINTAINER Andre Fernandes
+MAINTAINER John Jacobson - jjacobso@gmail.com
 
 ADD installim.sh /opt/installim.sh
 
 RUN /opt/installim.sh
 
-CMD ["/opt/IBM/InstallationManager/eclipse/tools/imcl","-c"]
+#CMD ["/opt/IBM/InstallationManager/eclipse/tools/imcl","-c"]
 

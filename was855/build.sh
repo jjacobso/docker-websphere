@@ -1,2 +1,2 @@
 #!/bin/bash
-docker build -t andrefernandes/docker-was855 .
+docker build --no-cache=true -t jjacobso/websphere .
